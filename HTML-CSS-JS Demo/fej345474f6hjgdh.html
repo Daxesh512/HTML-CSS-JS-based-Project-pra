@@ -1,0 +1,40 @@
+<html>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    a {
+        position: relative;
+        padding: 5px 0;
+        margin-bottom: 10px;
+        display: inline-block;
+        text-decoration: none;
+    }
+    
+    a::before {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        content: '';
+        display: block;
+        height: 2px;
+        width: 0;
+        transition: width .3s;
+        background-color: blue;
+    }
+    
+    a:hover::before {
+        width: 100%;
+    }
+</style>
+
+<body>
+    <a href="#">Link 1</a><br>
+    <a href="#">Link 2</a><br>
+    <a href="#">Link 3</a><br>
+    <a href="#">Link 4</a><br>
+    <a href="#">Link 5</a>
+</body>
+
+</html>

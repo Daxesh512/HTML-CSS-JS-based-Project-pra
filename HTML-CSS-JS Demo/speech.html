@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Speech Converter</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: grey;
+    }
+
+    .container {
+        position: relative;
+        max-width: 350px;
+        width: 100%;
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 2px 5px 1px rgba(33, 30, 30, 0.1);
+    }
+
+    header {
+        font-size: 18px;
+        color: #333;
+        font-weight: 400;
+        text-align: center;
+
+    }
+
+    textarea {
+        width: 100%;
+        height: 180px;
+        border-radius: 8px;
+        margin: 20px 0;
+        padding: 10px 15px;
+        resize: none;
+        outline: none;
+        border: 1px solid #aaa;
+    }
+
+    button {
+        width: 100%;
+        padding: 14px 0;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        background-color: #333;
+        cursor: pointer;
+        transition: all .4s ease;
+    }
+
+    button:hover {
+        background-color: #555;
+
+
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <header>
+            Text to Speech Converter
+        </header>
+        <textarea placeholder="Enter text"></textarea>
+        <button>Convert to Speech</button>
+    </div>
+
+    <script>
+        const textArea = document.querySelector('textarea')
+        const button = document.querySelector('button')
+        const isSpeaking = true;
+        const textToSpeech = ()=> {
+            
+            const synth = window.speechSynthesis;
+            const text = textArea.value;
+
+            if (!synth.speaking && text) {
+                const utternace = new SpeechSynthesisUtterance(text);
+                synth.speak(utternace)
+            }
+            if (text.length > 50) {
+                if (synth.speaking && isSpeaking) {
+                    button.innerText = "Pause";
+                    synth.resume();
+                    isSpeaking = false;
+                } else {
+                    button.innerText = "Resume";
+                    synth.pause();
+                    isSpeaking = true;
+                }
+            }else{
+                isSpeaking = false;
+                button.innerText = "Speaking"
+            }
+
+            setInterval(()=>{
+    if(!synth.speaking && !isSpeaking){
+        isSpeaking = true;
+        button.innerText = "Convert to Speech"
+    }
+})
+        };
+
+        button.addEventListener('click', textToSpeech)
+    </script>
+</body>
+
+</html>

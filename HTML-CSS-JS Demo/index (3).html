@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>calculator</title>
+
+	<script type="text/javascript">
+	
+	function del(){
+		var x= document.getElementById("scr").value;
+		document.getElementById("scr").value=x.Substr(0,x.length-1);
+	}
+	
+	let history = document.getElementById('his');
+
+	function calculation(v){
+		para = document.createElement('p');
+		data = v = " = " = eval(v);
+		para.innerText = data;
+		history.appendChild(para);
+		return eval(v);
+	}
+
+
+</script>
+
+	<style >
+		body{
+			display: flex;
+			background: darkgoldenrod;
+			color: black;
+			font-size: 20px;
+		}
+
+		body::before{
+			background: rgba(0, 0, 0, 0);
+		}
+		form{
+
+			background: gray;
+			display: grid;
+			padding: 20px;
+			border: 1px solid black;
+			margin-left: 400px;
+			margin-top: 5px;
+			width: 300px;
+			height: 500px;
+			box-shadow: 
+			rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+			rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+			rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+		}
+		span{
+			border: 1px solid black;
+			padding: 5px;
+			padding-left: 10px;
+			padding-right: 5px;
+			display: grid;
+			box-sizing: border-box;
+			place-items: center;
+						box-shadow: 
+			rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+			rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+			rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+		}
+		span:hover{
+			background: white;
+			cursor: pointer;
+			color: black;
+			box-shadow: inset 2px 2px 5px rgb(120, 120, 120),
+						inset -2px -2px  5px black;
+
+		}
+		.dd {
+			grid-column: span 4;
+			font-size: 20px;
+			text-shadow: 0 0 1px black;
+						box-shadow: 
+			rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+			rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+			rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+			border-radius: 3px;
+			font-weight: bold;
+		}
+		#c {
+			background: hotpink;
+			color: black;
+		}
+		.num{
+			background: slateblue;
+			color: black;
+		}
+		.num:hover{
+			color: black;
+		}
+		#calh{
+			margin-top: 200PX;
+			margin-left: 400px;
+			color: black;
+			font-family: monospace;
+			letter-spacing: 10px;
+						box-shadow: 
+			rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+			rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+			rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+			text-shadow: 0 0 10px white;
+			background: white;
+
+		}
+
+		#calh:hover{
+			text-shadow: 0 0 15px white;
+			transition: 1s;
+		}
+		legend{
+			margin-left: 400px;
+			color: white;
+			margin-top: -30px;
+			font-family: monospace;
+			text-transform: uppercase;
+			letter-spacing: 12px;
+		}
+
+		#equ{
+			background: goldenrod;
+		}
+
+		#del{
+			background: indianred;
+		}
+
+		#his {
+			background: rgba(0, 0, 0, 0.8);
+			width: 350px;
+			height: 540px;
+			margin-top: 277px;
+			overflow: scroll;
+			color: white;
+		}
+		#hish{
+			color: black;
+			margin: 0;
+			padding: 10px;
+			font-size: 30px;
+			letter-spacing: 12px;
+			font-family: roboto;
+			background: lightgray;
+									box-shadow: 
+			rgba(0, 0, 0, 0.4) 0px 2px 4px, 
+			rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, 
+			rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+		}
+
+		#his p{
+			letter-spacing: 5px;
+			padding-left: 15px;
+		}
+
+
+
+		#his::-webkit-scrollbar{
+			width: 0;
+		}
+	</style>
+</head>
+
+
+<body>
+	
+
+			<div>
+		<H1 id="calh">CALCULATAOR</H1>
+		<legend>made by biniyam</legend>
+
+	<form name="cal">
+
+		<input id="scr" class="dd" type="text" name="txt" >
+
+			<span id="c"onclick="document.cal.txt.value ='' ">C</span>
+			<span onclick="document.cal.txt.value +='+' ">+</span>
+			<span onclick="document.cal.txt.value +='-' ">-</span>
+			<span onclick="document.cal.txt.value +='/' ">/</span>
+			<span onclick="document.cal.txt.value +='*' ">*</span>
+			<span onclick="document.cal.txt.value = Math.sin(cal.txt.value) ">sin</span>
+			<span onclick="document.cal.txt.value = Math.cos(cal.txt.value)">cos</span>
+			<span onclick="document.cal.txt.value = Math.log(cal.txt.value)">log</span>
+			<span onclick="document.cal.txt.value = Math.sqrt(cal.txt.value,1/2)">2&radic;</span>
+			<span onclick="document.cal.txt.value = Math.sqrt(cal.txt.value,1/3)">3&radic;</span>
+
+			<span onclick="document.cal.txt.value = Math.pow(cal.txt.value,2)">x^2</span>
+			<span onclick="document.cal.txt.value = Math.pow(cal.txt.value,3)">x^3</span>
+
+
+
+			<span onclick="document.cal.txt.value = Math.tan(cal.txt.value)">tan</span>
+
+			<span class="num"onclick="document.cal.txt.value +='1' ">1</span>
+			<span class="num"onclick="document.cal.txt.value +='2' ">2</span>
+			<span class="num"onclick="document.cal.txt.value +='3' ">3</span>
+			<span class="num"onclick="document.cal.txt.value +='4' ">4</span>
+			<span class="num"onclick="document.cal.txt.value +='5' ">5</span>
+			<span class="num"onclick="document.cal.txt.value +='6' ">6</span>
+			<span class="num"onclick="document.cal.txt.value +='7' ">7</span>
+			<span class="num"onclick="document.cal.txt.value +='8' ">8</span>
+			<span class="num"onclick="document.cal.txt.value +='9' ">9</span>
+			<span class="num"onclick="document.cal.txt.value +='0' ">0</span>
+			<span class="num"onclick="document.cal.txt.value +='.' ">.</span>
+			<span id="del" onclick="del()" >Del</span>
+
+
+			<span id="equ" onclick="document.cal.txt.value = calculation(document.cal.txt.value);">=</span>
+
+	</form>
+</div>
+
+<div id="his">
+	<h1 id="hish">H I S T O R Y</h1>
+	<p>3+5=8</p>
+</div>
+
+
+
+</body>
+</html>

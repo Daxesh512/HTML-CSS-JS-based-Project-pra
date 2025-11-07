@@ -1,0 +1,79 @@
+/* Header area start */
+.farm-navbar-area {
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    transition: 2s;
+}
+.farm-navbar-area.sticky {
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 55;
+    transition: 1s;
+}
+.farm-navbar-area.sticky .menu li a {
+    line-height: 80px;
+}
+.farm-navbar-area.sticky .navbar-brand {
+    width: 140px;
+}
+nav.navbar {
+    background: #141414 none repeat scroll 0 0;
+    border-radius: 0;
+    padding: 0;
+}
+.navbar-brand {
+    padding: 0;
+    width: 180px;
+    position: absolute;
+    top: 0;
+}
+.menu li a {
+    color: rgb(12, 231, 103);
+    font-size: 16px;
+    text-transform: capitalize;
+    padding: 0 20px 0 0 !important;
+    margin-right: 20px;
+    position: relative;
+    line-height: 100px;
+    transition: .4s;
+}
+.fa-pencil-square-o {
+    color: #fff;
+    font-size: 19px;
+    background: #ff4301;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    transition: .4s;
+}
+.fa-pencil-square-o:hover {
+    background: #fff;
+    color: #ff4301;
+}
+.menu li a::before {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    content: "";
+    background: #727272;
+    right: 0;
+    top: 50%;
+    margin-top: -1.5px;
+}
+.menu li:last-child a::before {
+    display: none;
+}
+.menu li a:hover {
+    color: #ff4301;
+    text-decoration: underline;
+}
+.menu li.current-menu-item a {
+    color: #ff4301;
+    text-decoration: underline;
+}
+/* Header area end */

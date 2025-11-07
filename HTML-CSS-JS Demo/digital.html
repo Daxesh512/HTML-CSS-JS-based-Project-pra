@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock using JavaScript</title>
+</head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    body{
+        width: 100%;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+        color: #fff;
+    }
+    .heading
+    {
+        position: absolute;
+      
+    }
+    .container{
+        position: relative;
+       top: 90px;
+       width: 400px;
+       height: 120px;
+       border: 2px solid #fff;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       background-color: #fff;
+       color: #000;
+       font-size: 55px;
+       border-radius: 8px;
+    }
+    .container span{
+        width:80px;
+        height: 80px;
+        border: 2px solid #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        background-color: #000;
+        color: #fff;
+    }
+    .container .am-pm{
+        position: relative;
+        font-size: 20px;
+        font-weight: 700;
+        top: 30px;
+        left: 5px;
+    }
+</style>
+<body>
+    
+<h1 class="heading">Digital Clock</h1>
+
+<div class="container">
+    <span class="hour">00</span>
+    :
+    <span class="minut">00</span>
+    :
+    <span class="second">00</span>
+<div class="am-pm">PM</div>
+</div>
+
+
+    <script>
+const hour = document.querySelector('.hour')
+const minut = document.querySelector('.minut')
+const second = document.querySelector('.second')
+const clockamPm = document.querySelector('.am-pm')
+
+setInterval(()=>{
+    let today = new Date()
+
+let clockSecond = today.getSeconds()
+let clockMinut = today.getMinutes()
+let clockHour = today.getHours()
+
+second.innerHTML = clockSecond < 10 ? '0' + clockSecond : clockSecond
+minut.innerHTML = clockMinut < 10 ? '0' + clockMinut : clockMinut
+hour.innerHTML = clockHour < 10 ? '0' + clockHour : clockHour
+clockamPm.innerHTML = clockHour < 12 ? 'AM' : 'PM'
+
+},1000)
+
+
+    </script>
+</body>
+</html>

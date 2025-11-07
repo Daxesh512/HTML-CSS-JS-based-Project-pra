@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Word using javaScript </title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #111111;
+        color: #fff;
+    }
+.wrapper {
+    width: 90vmin;
+}
+.heading {
+    padding-bottom: 50px;
+    font-size: 2.3rem;
+    text-align: center;
+}
+.container {
+    padding: 50px 30px 30px 30px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+textarea{
+    width: 100%;
+    border: none;
+    resize: none;
+    outline: none;
+    font-size: 16px;
+    line-height: 23px;
+    color: #000;
+}
+.count {
+    position: relative;
+    width: 80%;
+    padding: 20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    border-radius: 8px;
+}
+h5{
+    font-size: 32px;
+}
+</style>
+<body>
+    
+<div class="wrapper">
+    <h2 class="heading">Live Word Counter</h2>
+    <div class="container">
+        <textarea id="input-textArea" rows="12" placeholder="Start Typing Here"></textarea>
+    </div>
+    <div class="count">
+        <h5 id="word-Count">0</h5>
+        <p>Words</p>
+    </div>
+    <div class="count">
+        <h5 id="word-charac">0</h5>
+        <p>Characters</p>
+    </div>
+</div>
+
+
+    <script>
+const inputText = document.getElementById('input-textArea')
+
+const characText = document.getElementById('word-charac')
+const wordText = document.getElementById('word-Count')
+
+inputText.addEventListener('input',()=>{
+    characText.textContent = inputText.value.length
+
+
+    let txt = inputText.value.trim()
+
+    wordText.textContent = txt.split(/\s+/).filter((item)=>item).length
+})
+
+
+
+
+    </script>
+</body>
+</html>

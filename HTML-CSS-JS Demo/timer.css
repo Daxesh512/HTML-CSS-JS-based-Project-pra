@@ -1,0 +1,24 @@
+body{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     min-height: 100vh;
+}
+
+.timer{
+     padding: 20px;
+     background-color: rgb(214, 219, 245);
+     border-radius: 10px;
+} 
+h2{
+     text-align: center;
+}
+button{
+     padding: 5px 20px;
+     background-color: rgb(0, 0, 0);
+     border: none;
+     border-radius: 5px;
+     margin: 5px;
+     color: white;
+     font-style: italic;
+}

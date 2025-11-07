@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Mouse Position</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        min-height: 100vh;
+        background-color: #111111;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+    .heading{
+        padding-bottom: 50px;
+        font-size: 2.3rem;
+    }
+    .container{
+        width: 500px;
+        padding: 50px 30px;
+        background-color: #Fff;
+        border-radius: 10px;
+        font-size: 2.4rem;
+        text-align: center;
+        color: #000;
+    }
+    .container div{
+padding: 16px 0;
+    }
+    span{
+     color: red;   
+    }
+</style>
+<body>
+    
+<h2 class="heading">Get Mouse Position</h2>
+<div class="container" id="container">
+Move The Mouse To Get The Coordinate
+</div>
+
+
+
+<script>
+    const container = document.getElementById('container')
+
+window.addEventListener('mousemove',(e)=>{
+   
+let xpos = e.clientX;
+let ypos = e.clientY;
+container.innerHTML = `<div>X:</div><span>${xpos}</span>
+                       <div>Y:</div><span>${ypos}</span>`
+
+
+    })
+    
+
+
+</script>
+</body>
+</html>

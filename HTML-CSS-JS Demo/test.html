@@ -1,0 +1,71 @@
+<html>
+<style>
+	body {
+		padding: 40px;
+	}
+
+	.smi {
+		border: none;
+		background-color: white;
+		padding: 0;
+		border-radius: 200px;
+		overflow: hidden;
+		white-space: nowrap;
+		width: 40px;
+		box-shadow: 0 5px 15px #0006;
+		cursor: pointer;
+		transition: width .4s;
+		margin-right: 10px;
+	}
+
+	.smi :first-child {
+		width: 40px;
+		height: 40px;
+		background-color: white;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 20px;
+		transition: all .2s;
+	}
+
+	.smi :last-child {
+		display: inline-block;
+		margin-left: -40px;
+		padding: 0 15px 0 45px;
+		border-radius: 20px;
+	}
+
+	.smi:hover :first-child {
+		background-color: #4067ac;
+		color: white;
+	}
+</style>
+
+<body>
+	<button class="smi">
+		<div>i</div>
+		<div>Facebook</div>
+	</button>
+	<button class="smi">
+		<div>i</div>
+		<div>Whatsapp</div>
+	</button>
+	<button class="smi">
+		<div>i</div>
+		<div>Twitter</div>
+	</button>
+	<button class="smi">
+		<div>i</div>
+		<div>Telegram</div>
+	</button>
+</body>
+<script>
+	const icons = document.querySelectorAll(".smi");
+	for (let icon of icons) {
+		icon.onpointerover = () => { icon.style.width = icon.scrollWidth + "px"; }
+		icon.onpointerout = e => { icon.style.width = "40px"; }
+	}
+</script>
+
+</html>

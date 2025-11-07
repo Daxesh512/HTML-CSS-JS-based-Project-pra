@@ -1,0 +1,390 @@
+<!-- this is a production of mems.. please you ca contact him if you have any question about this little animation
+
+email--- isaacseun63@gmail.com or  memsweb2@gmail.com
+
+whatsapp -- +2349036634645
+
+fb --- duyil ayomid
+
+instagram -- http://www.instagram.com/dasimems
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <meta http-equiv="refresh" content="20"> -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MY LITTLE ANIMATION</title>
+
+
+    </head>
+
+    <body>
+        <style>
+
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: calc(max-content + 3px);
+    height: auto;
+    position: relative;
+    text-align: center;
+    height: 60px;
+    transform: scale(1, 0);
+    transform-origin: top;
+    border-top: 5px solid green;
+    animation: slidedown 2s linear forwards,
+    slidedownafter 2s linear 22s forwards;
+}
+
+.error-message{
+    width: 100vw;
+    padding: 10px;
+    color: red;
+    font-size: 20px;
+    transform: scale(0, 0);
+    border-radius: 5px;
+    text-align: center;
+    animation: error 3s linear 1.2s forwards;
+    word-wrap: break-word;
+}
+
+
+
+.container::after{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    left: 100vw;
+    top: 5px;
+    box-shadow: 17px 0 10px 0px yellow;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background: rgb(158, 136, 8);
+    animation: bullet 5s ease 9s forwards;
+}
+
+@keyframes  bullet{
+    to{
+        left: -100vw;
+    }
+}
+
+@keyframes slidedown {
+    to{
+        
+    transform: scale(1, 1);
+    }
+}
+
+@keyframes slidedownafter{
+    to{
+        height: 0px;
+        overflow: hidden;
+    }
+}
+
+
+
+.typing-text{
+    width: 100%;
+    background: red;
+    margin-top: 20px;
+    position: relative;
+    animation:sideslide 2s ease 10.1s forwards,
+    sidesoff 2s ease 10.6s forwards;
+    transform-origin: left;
+}
+
+@keyframes sideslide {
+    to{
+        transform: rotate(25deg);
+        /* transform-origin: top; */
+    }
+}
+
+@keyframes sidesoff {
+    to{
+        transform: translateY(100vh);
+    }
+}
+
+.typing-text::before,
+.typing-text::after{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 30px;
+    top: Calc((1.5rem) * -1);
+    background: green;
+}
+
+.typing-text::before{
+    left: 10px;
+    animation: fall 1s ease 10.5s forwardS;
+    transform-origin: bottom;
+}
+
+
+.typing-text::after{
+    right: 10px;
+    animation: fall 1s ease 10s forwardS;
+    transform-origin: bottom;
+}
+
+@media only screen and (max-width: 450px) {
+    .typing-text::after{
+        animation: fall 1s ease 9.8s forwards;
+    }
+}
+
+
+@media only screen and (max-width: 300px){
+    .typing-text::after{
+        animation: fall 1s ease 9.6s forwards;
+    }
+}
+
+@media only screen and (max-width: 290px){
+    .typing-text::after{
+        animation: fall 1s ease 9.5s forwards;
+    }
+}
+
+@media only screen and (max-width: 253px){
+    .container{
+        display: none;
+    }
+
+    
+
+@keyframes error {
+    to{
+        transform: scale(1, 1);
+    }
+}
+
+}
+
+@keyframes fall{
+    to{
+        transform: rotate(-90deg);
+        z-index: -9;
+    }
+    
+    
+
+}
+
+.typing-text h2{
+    font-size: clamp(0.5rem, calc(2vw + 1rem), 3rem);
+    color: white;
+    margin: auto;
+    position: relative;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.typing-text h2::after,
+.typing-text h2::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+.typing-text h2::before{
+    background: red;
+    animation: typing 6s steps(20) 2s forwards;
+    transform-origin: right;
+    
+}
+
+.typing-text h2::after{
+    width: 3px;
+    height: 100%;
+    opacity: 0;
+    background: black;
+    animation: blinkMove 6s steps(20) 2s forwards,
+    blinking 0.5s ease infinite;
+}
+
+@keyframes typing {
+    to{
+        transform: scale(0, 1);
+    }
+}
+@keyframes blinkMove {
+    to{
+        left: 100%;
+    }
+}
+
+@keyframes blinking {
+    to{
+        opacity: 1;
+    }
+}
+
+
+.fade-in-text,
+.log-hit-text{
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    top: 10%;
+    left: 0;
+    opacity: 0;
+    background: rgb(116, 240, 116);
+}
+
+.fade-in-text{
+    animation: fadeIn 2s ease 12s forwards,
+    slideout 1s ease 16s forwards;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 5px;
+    z-index: 5;
+    border-bottom: 5px solid green;
+}
+
+.fade-in-text::after,
+.fade-in-text::before{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient( rgb(4, 202, 4),
+    green, black 60%);
+    bottom: -10px;
+    z-index: -9;
+    border-radius: 50%;
+    animation: rollout 6s ease 16s forwards;
+
+}
+
+.fade-in-text p{
+    position: relative;
+    width: 100%;
+}
+
+.fade-in-text p::after,
+.fade-in-text p::before{
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    bottom: -3px;
+    background: black;
+}
+
+.fade-in-text p::before{
+    left: 0;
+    background: linear-gradient(rgb(223, 220, 220), grey, rgb(223, 220, 220), grey);
+    box-shadow: -5px 0 9px 0 gold;
+}
+
+
+
+.fade-in-text p::after{
+    right: 0;
+    background: linear-gradient(red,rgb(253, 147, 147),red,rgb(253, 147, 147));
+    box-shadow: 0 0 3px 3px red;
+}
+
+
+
+@keyframes rollout {
+    to{
+        transform: translateX(-100vw) rotateZ(1080deg);
+    }
+}
+
+@keyframes slideout {
+    to{
+        transform: translateX(-100vw);
+    }
+}
+
+.fade-in-text::before{
+    left: 20px;
+}
+
+.fade-in-text::after{
+    right: 20px;
+}
+
+.log-hit-text{
+    opacity: 1;
+    border-radius: 10px;
+    transform: scale(0, 0);
+    animation: rotateIN 3s ease 18s forwards;
+}
+
+@keyframes rotateIN {
+    to{
+        transform: scale(1, 1);
+    }
+}
+
+
+
+@keyframes fadeIn {
+    to{
+        opacity: 1;
+    }
+}
+
+.container:hover,
+.container:hover::after,
+.container:hover .typing-text,
+.container:hover .typing-text::before,
+.container:hover .typing-text::after,
+.container:hover .typing-text h2::after,
+.container:hover .typing-text h2::before,
+.container:hover .fade-in-text,
+.container:hover .fade-in-text::after,
+.container:hover .fade-in-text::before,
+.container:hover .log-hit-text
+{
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+
+
+
+
+        </style>
+        <div class="container">
+            
+            <div class="typing-text">
+                <h2>WELCOME TO MEMS SITE</h2>
+            </div>
+            <div class="fade-in-text">
+                <p>The site with the best animation</p>
+            </div>
+            <div class="log-hit-text">  
+                <p>Thanks for staying with us</p>
+            </div>
+        </div>
+
+        <div class="error-message">
+            <p>Error: Please view this animation with a device that is at least 300px in width</p>
+        </div>
+    </body>
+</html>

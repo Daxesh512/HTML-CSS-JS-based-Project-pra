@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Steps Using JavaScript</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #111111;
+        color: #fff;
+    }
+    .heading
+    {
+        padding-bottom: 50px;
+        font-size: 2rem
+    }
+    .container{
+        width: 450px;
+        padding: 30px 40px;
+        background-color: #fff;
+        border-radius: 10px;
+        color: #000;
+        text-align: center;
+    }
+    #progress-bar{
+        padding-bottom: 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+    .bullet{
+        position: relative;
+        width: 50px;
+        height: 50px;
+        border: 3px solid #2d2daf;
+        border-radius: 100%;
+        color: #000;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 2.2;
+        cursor: pointer;
+        transition: background-color 500ms;
+    }
+.completed{
+    background-color: #2d2daf;
+    color: #fff;
+}
+.bullet.completed::after{
+    content: "";
+    position: absolute;
+    width: 54px;
+    height: 3px;
+    right:-58px ;
+    bottom: 15px;
+    background-color: #2d2daf;
+}
+button{
+    width: 10em;
+    margin: 20px;
+    padding: 15px;
+    background-color: #000;
+    border:none;
+    outline: none;
+    border-radius: 6px;
+color: #fff;
+cursor: pointer;
+}
+#prev-btn:active{
+    background-color: #ff0000;
+}
+#next-btn:active{
+   background-color: #2d2daf; 
+}
+button:disabled{
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+</style>
+<body>
+    
+<div class="heading">progress Steps</div>
+
+<div class="container">
+    <div id="progress-bar">
+        <div class="step">
+            <div class="bullet">1</div>
+        </div>
+        <div class="step">
+            <div class="bullet">2</div>
+        </div>
+        <div class="step">
+            <div class="bullet">3</div>
+        </div>
+        <div class="step">
+            <div class="bullet">4</div>
+        </div>
+    </div>
+    <button id="prev-btn">Previous</button>
+    <button id="next-btn">Next</button>
+</div>
+
+
+
+<script>
+    const prevBtn = document.getElementById('prev-btn')
+    const nextBtn = document.getElementById('next-btn')
+    const bullets = document.querySelectorAll('.bullet')
+
+
+
+const maX_Steps = 4
+let currentStop = 1
+
+nextBtn.addEventListener('click',()=>{
+    const currentBullet = bullets[currentStop - 1]
+    currentBullet.classList.add('completed')
+    currentStop++
+    prevBtn.disabled = false
+    if(currentStop===maX_Steps){
+        nextBtn.disabled = true
+    }
+})
+
+prevBtn.addEventListener('click',()=>{
+    const currentBullet = bullets[currentStop - 2]
+    currentBullet.classList.remove('completed')
+    currentStop--
+    nextBtn.disabled = false
+    if(currentStop===1){
+        prevBtn.disabled = true
+    }
+})
+
+
+</script>
+</body>
+</html>

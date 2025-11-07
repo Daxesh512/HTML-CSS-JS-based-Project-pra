@@ -1,0 +1,36 @@
+
+
+body{
+    background-color: white;
+    /* display:flex; */
+    /* align-items:center; */
+    /* justify-content:center; */
+    /* height: 95vh; */
+
+}
+
+div {
+    background-color: green;
+    /* box-shadow: 0 3px 10px red; */
+    display: flex;
+    height: 250vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.con {
+    width: 87%;
+    height: 300px;
+    border: 1px solid green ;
+    border-radius: 20px;
+    background-color: #012443;
+    margin: 0 auto;
+    text-align:center;
+    box-shadow: 0 5px 15px red;
+}
+
+.hd2 {
+    font-size: 19px;
+    color: lime;
+    text-align: center;
+}

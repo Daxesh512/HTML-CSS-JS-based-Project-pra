@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Files</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #e3f2fd;
+}
+.download-btn{
+display: flex;
+align-items: center;
+border-radius: 6px;
+padding: 16px 25px;
+border: none;
+color: #fff;
+background-color: #4a98f7;
+box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+cursor: pointer;
+transition: all 0.2s ease;
+}
+.download-btn:hover{
+    background-color: #2382f6;
+}
+.download-btn .icon {
+    font-size: 2rem;
+
+}
+.download-btn .text {
+font-size: 2rem;
+margin: 0 10px;
+}
+.download-btn.timer{
+    color: #000;
+background: none;
+box-shadow: none;
+font-size: 1.6rem;
+pointer-events: none;
+transition: nonel;
+}
+.download-btn.timer b{
+    padding: 0 8px;
+}
+</style>
+<body>
+    <button class="download-btn" data-timer="5">
+        <i class="icon fa-solid fa-download"></i>
+        <span class="text">Download Files</span>
+    </button>
+
+
+    <script>
+const downloadBtn = document.querySelector(".download-btn")
+
+const fileLink = "https://e-library.namdu.uz/22%20%D0%A4%D0%B8%D0%B7%D0%B8%D0%BA%D0%B0-%D0%BC%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/Oliy%20matematika.%20l%20qism.%20Xurramov%20Sh.R.pdf"
+
+const initTimer = ()=>{
+    if(downloadBtn.classList.contains("disable-timer")){
+        return (location.href = fileLink)
+    }
+    let timer = downloadBtn.dataset.timer;
+    downloadBtn.classList.add('timer')
+    downloadBtn.innerHTML = `your file will download in <b> ${ timer} </b> seconds`
+
+
+    const initCounter = setInterval(()=>{
+        if(timer>0){
+timer--
+return downloadBtn.innerHTML = `your file will download in <b> ${ timer} </b> seconds`}
+clearInterval(initCounter)
+downloadBtn.textContent = "Your file is downloading..."
+location.href = fileLink
+setTimeout(()=>{
+downloadBtn.classList.replace('timer','disable-timer')
+downloadBtn.innerHTML = `<i class="icon fa-solid fa-download"></i>
+        <span class="text">Download Files</span>`
+},2000)
+    },1000)
+}
+
+downloadBtn.addEventListener('click',initTimer)
+    </script>
+</body>
+</html>

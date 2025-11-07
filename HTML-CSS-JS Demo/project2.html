@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html> 
+Name:-<input type="text" id="nametxt"><br><br> Date of birth:-<input type="date" id="dobtxt"><br><br> salary:-<input type="text" id="saltxt"><br><br> 
+Joining Date:-<input type="date" id="jdtxt"><br><br> 
+<center><button id=register onclick="validation()">Register</button> </center> 
+<head> <script> function validation() { var name=document.getElementById("nametxt").value; var sal=parseInt(document.getElementById("saltxt").value); var jdate = document.getElementById("jdtxt").value var dob = document.getElementById("dobtxt").value var cal1=new Array(); cal1=jdate.split("-"); var date1=cal1[2]; var month1=cal1[1]; var year1=cal1[0]; var cal2=new Array(); cal=dob.split("-"); var date2=cal[2]; var month2=cal[1]; var year2=cal[0]; //vallidation for name if(name==""||name==null) 
+{ 	
+alert("Name should not be empty"); return false; 
+} 
+if(!(/^[A-Za-z]+$/).test(name)) 
+{ 
+alert("Only Alphabets are aloud"); return false; 
+} 
+//vallidation for date of birth var d = new Date();//for currernt date var curr_year=d.getFullYear();//to calculate age we need year of current date if(dob==""||dob==null) 
+{ 
+alert("date of birth should not be empty"); return false; 
+} 
+if(curr_year<year2) 
+{ 
+alert("entered date is greater than current date"); return false; 
+} 
+var age=curr_year-year2; if(age<18) 
+{ 
+alert("age should be greater than 18"); return false; 
+} 
+//vallidation for salary if(isNaN(sal)) 
+{ 
+alert("Salary should not be empty"); return false; 
+} 
+else if(sal<10000) 
+{ 
+alert("Salary should be greater than 10000"); return false; 
+} 
+//vallidation for joining date if(jdate=="") 
+{ 
+alert("joining date should not be empty"); return false; 
+} 
+ 
+if(curr_year<year1) 
+{ 
+alert("entered date is greater than current date"); return false; 
+} 
+var diff=year1-year2; 
+if(year1<year2) 
+{ 
+alert("joining date should be greater than date of birth") return false; 
+} 
+if(diff<15) 
+{ 
+alert("joining date should be 15 year after date of birth"); return false; 
+} 
+else
+{
+alert('Form Succesfully Submitted');
+window.location.reload()
+return true;
+}
+}
+</script> 
+</head> <body> 
+</body> 
+</html> 

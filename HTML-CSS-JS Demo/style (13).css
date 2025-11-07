@@ -1,0 +1,128 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #343434;
+  display: grid;
+  place-items: center;
+}
+
+main {
+  width: 400px;
+  height: 400px;
+  border-radius: 4px;
+  box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.3);
+}
+
+.tic-tac-toe {
+  width: 100%;
+  height: 100%;
+  border: 12px solid #343434;
+  box-shadow: 0px 0px 24px 4px rgba(0, 0, 0, 0.3) inset;
+  border-radius: 4px;
+  background: #222121;
+}
+
+.tic-tac-toe td {
+  width: 100px;
+  height: 100px;
+  border-spacing: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #343434;
+  font-size: 6rem;
+  position: relative;
+}
+
+.tic-tac-toe td::after,
+.tic-tac-toe td::before {
+  content: "";
+  position: absolute;
+  background: #ffffff;
+}
+
+.tic-tac-toe td.o::after {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: darkorchid;
+}
+
+.tic-tac-toe td.o::before {
+  width: 35px;
+  height: 35px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 50%;
+  background: #343434;
+  z-index: 999;
+}
+
+.tic-tac-toe td.x::after {
+  width: 12px;
+  height: 60px;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skew(-32deg);
+  background: cyan;
+}
+
+.tic-tac-toe td.x::before {
+  width: 12px;
+  height: 60px;
+  z-index: 9;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) skew(32deg);
+  background: cyan;
+}
+
+.result {
+  background: #343434;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #ffffff;
+  display: none;
+  z-index: 999;
+}
+
+.result > div {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 150px;
+  text-align: center;
+  color: springgreen;
+}
+
+.result h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 1.6rem;
+}
+
+.result p {
+  font-size: 2rem;
+  font-weight: 600;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onvert Pixel To EM Using JavaScript</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111111;
+    color: #fff;
+}
+.container{
+    width: 45vw;
+    padding: 6em 3em;
+    background-color: #fff;
+    border-radius: 10px;
+    color: #000;
+}
+.heading{
+    padding-bottom: 50px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    text-align: center;
+}
+.input-box{
+    display: flex;
+    justify-content: space-around;
+}
+label{
+    display: block;
+    font-size: 24px;
+}
+input{
+    padding: 16px;
+    margin: 0 2px;
+    border: 1px solid #000;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+    color: #000;
+    outline: none;
+}
+</style>
+<body>
+    
+<div class="container">
+    <div class="heading">Convert PX To EM</div>
+    <div class="input-box">
+        <div class="input">
+            <label for="input-px">PX:</label>
+            <input type="number" id="input-px">
+        </div>
+        <div class="input">
+            <label for="input-em">EM:</label>
+            <input type="number" id="input-em">
+        </div>
+</div>
+
+
+    <script>
+const inputPX = document.getElementById('input-px')
+const inputEM = document.getElementById('input-em')
+
+let pxToEm = ()=>{
+    let pxVal = inputPX.value
+   
+
+if(pxVal!=0){
+    inputEM.value = pxVal/16
+}
+else{
+    inputEM.value = ""
+}
+
+}
+let emTopx = ()=>{
+    let emVal = inputEM.value
+   
+
+if(emVal!=0){
+    inputPX.value = emVal/16
+}
+else{
+    inputPX.value = ""
+}
+
+}
+
+
+inputPX.oninput = pxToEm
+inputEM.oninput = emTopx
+
+
+    </script>
+</body>
+</html>

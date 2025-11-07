@@ -1,0 +1,43 @@
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Calculator</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		input {
+			display: block;
+			width: 100%;
+			text-align: right;
+		}
+
+		#res {
+			flex-grow: 1;
+			text-align: right;
+		}
+
+		input,
+		button,
+		div {
+			font-size: 2em;
+		}
+	</style>
+</head>
+
+<body>
+	<input id="expr" placeholder="Enter expression here" />
+	<div style="display: flex;">
+		<button onclick="calculate()">=</button>
+		<div id="res"></div>
+	</div>
+	<script>
+		function calculate() {
+			res.innerHTML = eval(expr.value)
+		}
+	</script>
+</body>
+
+</html>

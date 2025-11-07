@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomidor Timer using JavaScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    body {
+        background-color: #cb202d;
+    }
+
+    .container {
+        background-color: #1b1b1b;
+        width: min(90%, 500px);
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        padding: 4em 2em;
+        border-radius: 0.5em;
+    }
+
+    .section-container {
+        display: flex;
+        gap: 1em;
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 1em 2em;
+        border-radius: 8px;
+        background-color: #3e3f43;
+        color: #a9a7a7;
+    }
+
+  
+
+    .btn-focus {
+        color: #ffffff;
+        background-color: #cb202d;
+    }
+
+    
+
+    .time-btn-container {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2em;
+    }
+#time{
+    text-align: center;
+    color: #ffffff;
+    font-size: 5em;
+    font-weight: 600;
+}
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 2em;
+    }
+#btn-start,
+#btn-pause{
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+#btn-reset{
+    background-color: transparent;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    font-size: 2em;
+
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+   
+</style>
+
+<body>
+    <div class="container">
+        <div class="section-container">
+            <button id="focus" class="btn btn-timer btn-focus">Focus</button>
+            <button id="shortbreak" class="btn btn-shortbreak">Short Break</button>
+            <button id="longbreak" class="btn btn-longbreak">Long Break</button>
+        </div>
+        <div class="time-btn-container">
+            <span id="time"></span>
+            <div class="btn-container">
+                <button id="btn-start" class="show">Start</button>
+                <button id="btn-pause" class="hide">Pause</button>
+                <button id="btn-reset" class="hide">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+<!--Script part-->
+<script>
+
+const startBtn = document.getElementById('btn-start')
+const resetBtn = document.getElementById('btn-reset')
+const buttons = document.querySelectorAll('button')
+const pauseBtn = document.getElementById('btn-pause')
+const FocusBtn = document.getElementById('focus')
+const shortBtn = document.getElementById('shortbreak')
+const longBtn = document.getElementById('longbreak')
+let time = document.getElementById('time')
+
+let set;
+let count = 59;
+let active = 'focus'
+let paused = true
+let minCount = 24;
+
+time.textContent = `${minCount+1}:00`
+
+const appenZero = (value)=>{
+value = value < 10 ? `0${value}` : value
+return value
+}
+resetBtn.addEventListener('click',(resetTime=()=>{
+pauseTimer()
+count = 59;
+switch(active){
+    case 'long':
+        minCount = 14;
+        break
+    case 'short':
+        minCount = 4
+        break  
+    default:
+        minCount = 24;
+        break      
+}
+count = 59
+time.textContent = `${minCount+1}:00`
+})
+
+)
+
+const removeFocus = ()=>{
+    buttons.forEach((button)=>{
+        button.classList.remove('btn-focus')
+    })
+}
+FocusBtn.addEventListener('click',()=>{
+    removeFocus()
+    FocusBtn.classList.add('btn-focus')
+    pauseTimer()
+    minCount = 24
+    count = 59
+    time.textContent = `${minCount+1}:00`
+})
+
+shortBtn.addEventListener('click',()=>{
+    active = 'short'
+    removeFocus()
+    shortBtn.classList.add('btn-focus')
+    pauseTimer()
+    minCount = 4
+    count = 59
+    time.textContent = `${appenZero(minCount+1)}:00`
+})
+
+longBtn.addEventListener('click',()=>{
+    active = 'long'
+    removeFocus()
+    longBtn.classList.add('btn-focus')
+    pauseTimer()
+    minCount = 14
+    count = 59
+    time.textContent = `${minCount+1}:00`
+})
+
+pauseBtn.addEventListener('click',(pauseTimer = () => {
+    paused = true
+    clearInterval(set)
+    startBtn.classList.remove('hide')
+    pauseBtn.classList.remove('show')
+    resetBtn.classList.remove('show')
+}));
+startBtn.addEventListener('click',()=>{
+    resetBtn.classList.add('show')
+    pauseBtn.classList.add('show')
+    startBtn.classList.add('hide')
+    startBtn.classList.remove('show')
+    if(paused){
+        paused = false;
+        time.textContent = `${appenZero(minCount)}:${appenZero(count)}`;
+        set = setInterval(()=>{
+            count--;
+            time.textContent = `${appenZero(minCount)}:${appenZero(count)}`
+            if(count==0){
+                if(minCount!=0){
+                    minCount--;
+                    count=60
+                }
+                else{
+                    clearInterval(set)
+                }
+            }
+        },1000)
+    }
+})
+
+</script>
+
+</body>
+
+</html>

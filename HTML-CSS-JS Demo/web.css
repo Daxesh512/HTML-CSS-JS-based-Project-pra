@@ -1,0 +1,160 @@
+
+body, h1,h2,h3,ul,p {
+    margin: 0;
+    padding: 0;
+  box-sizing: border-box;
+}
+
+#header {
+    background-color: #35424a;
+    border-bottom: 9px solid tomato;
+}
+#header h1 {
+color: #fff;
+font-family: sans-serif;
+padding: 1rem 0;
+display: inline-block;
+}
+.container {
+  width: 70%;
+  margin: auto;
+}
+#header .logo {
+    color: tomato;
+}
+.navbar {
+    float: right;
+}
+.navbar li {
+    display: inline;
+}
+.navbar li a {
+    text-decoration: none;
+    font-family: sans-serif;
+    color: #fff;
+    padding: 1.6rem 1rem;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    display: inline-block;
+    font-size: 1.3rem ;
+    transition: animation .7s ease;
+}
+.navbar li a:hover {
+    color: tomato;
+    cursor: pointer;
+}
+#banner {
+    height: 60vh;
+    background-image: url("school.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    font-family: sans-serif;
+    background-attachment: fixed;
+}
+#banner h1 {
+    font-size: 3.5rem;
+    text-align: center;
+   margin-bottom: 1.6rem;
+   padding-top: 9.4rem;
+}
+#banner p {
+    font-size: 1.3rem;
+}
+#newsletter {
+    background-color: #35424a;
+    color: #fff;
+    font-family: sans-serif;
+    padding: 1.4rem 0;
+    display: inline-block;
+    width: 100%;
+}
+#newsletter .left {
+    float: left;
+}
+#newsletter .right {
+    float: right;
+}
+#newsletter input {
+    padding: 5px;
+}
+.btn {
+    padding: 6px 1rem;
+    border: none;
+    background-color: tomato;
+    color: #fff;
+    margin-left: 15px;
+}
+.btn:hover {
+    cursor: pointer;
+    color: aqua;
+}
+#courses {
+    padding: 2rem 0;
+}
+
+.box {
+   width: 33.3%;
+    float: left;
+    text-align: center;
+    font-family: sans-serif;
+}
+.box img {
+    max-width: 100%;
+    width: 120px;
+    background-size: cover;
+}
+.clr {
+    clear: both;
+}
+#footer {
+    padding: 50px 0;
+    text-align: center;
+    background-color: tomato;
+    color: #fff;
+    margin-top: 2.5rem;
+    font-size: 1.3rem;
+}
+.main-content {
+    width: 65%;
+    float: left;
+}
+.sidebar {
+    width: 30%;
+float: right;
+}
+#about-us {
+    margin: 40px 0;
+    font-family: sans-serif;
+}
+.bg-dark {
+    background-color: #35424a;
+    color: #fff;
+    padding: 1rem;
+    margin: 10px 0;
+}
+.service-box {
+    padding: 2rem;
+    margin: 1rem 0;
+    background-color: #e5e5e5;
+    border: 1px solid #555;
+}
+.sidebar h3 {
+    font-size: 1.4rem;
+}
+label {
+    display: block;
+    margin-bottom: 10px 0;
+    padding: 10px 0;
+    font-size: 1.1rem;
+
+}
+.form-input,textarea {
+    width: 100%;
+    padding: 10px 0;
+}
+.active {
+    color: tomato !important;
+}

@@ -1,0 +1,22 @@
+body{
+    background-color: white;
+}
+
+div {
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.con {
+    border: 1px solid green ;
+    height: 100px;
+    width: 85%;
+    border-radius: 25px;
+    background-color: #012443;
+    margin: 0 auto;
+    text-align:center;
+    justify-content: center;
+}
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy To Clipboard using JavaScript</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #111111;
+    color: #fff;
+}
+.heading{
+    padding-bottom: 20px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+.input-box{
+    position: relative;
+    display: flex;
+    padding: 10px;
+    background-color: #fff;
+    border-radius:10px;
+}
+input{
+    padding: 10px;
+    border: none;
+    font-size: 18px;
+    color: #555;
+    outline: none;
+}
+button{
+    padding: 10px;
+    border: none;
+    color: #fff;
+    border-radius: 6px;
+    background-color: #2d2daf;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+}
+button:active{
+    background-color: #ff0000;
+
+}
+</style>
+<body>
+    
+
+    <div class="container">
+    <h2 class="heading">Copy To Clipboard</h2>
+    <div class="input-box">
+        <input type="text" class="text" value="Copy This Text"> 
+        <button><i class="fa-solid fa-copy"></i></button>
+    </div>
+</div>
+
+    <script>
+const button = document.querySelector('button')
+
+button.addEventListener('click',()=>{
+    let input = document.querySelector('input')
+    input.select()
+    document.execCommand('copy')
+
+})
+
+    </script>
+</body>
+</html>

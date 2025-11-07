@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom effect using javaScript </title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+align-items: center;
+justify-content: center;
+background-color: #111111;
+color: #fff;
+
+}
+.heading
+{
+    padding-bottom: 50px;
+    font-size: 2.4rem;
+}
+img{
+    width: 300px;
+    border-radius: 3%;
+    cursor: pointer;
+}
+
+
+</style>
+<body>
+    <h2 class="heading">zoom Effect</h2>
+    <img src="images (1).jpg" alt="">
+
+
+
+    <script>
+        const{body} = document
+        let zoomActived = false
+
+        window.addEventListener('click',()=>{
+            zoomActived = !zoomActived
+        })
+
+window.addEventListener('mousemove',(e)=>{
+    const {clientX:x,clientY:y} = e
+
+if(zoomActived){
+    body.style.transform = 'scale(2)'
+    body.style.transformOrigin = `${x}px ${y}px`
+}
+else{
+    body.style.transform = 'none'
+}
+})
+
+    </script>
+</body>
+</html>

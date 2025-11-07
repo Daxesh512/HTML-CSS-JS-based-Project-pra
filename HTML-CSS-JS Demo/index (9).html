@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="skull.png" type="image/x-icon" />
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <form>
+            <div class="cal-div-wrp">
+                <div class="cal">
+                    <div class="heading">
+                        <h1>Calculator</h1>
+                    </div>
+                    <input type="text" placeholder="0" value="" id="screen" />
+                    <div class="num">
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(7)" value="7">
+                                7
+                            </button>
+                        </div>
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(8) " value="8">
+                                8
+                            </button>
+                        </div>
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(9)" value="9">
+                                9
+                            </button>
+                        </div>
+                        <div class="b-wrp" id="symbol">
+                            <button type="button" onclick="myfunction('+')" value="+">
+                                +
+                            </button>
+                        </div>
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(4)" value="4">
+                                4
+                            </button>
+                        </div>
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(5)" value="5">
+                                5
+                            </button>
+                        </div>
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(6)" value="6">
+                                6
+                            </button>
+                        </div>
+                        <div class="b-wrp" id="symbol">
+                            <button type="button" onclick="myfunction('-')" value="-">
+                                -
+                            </button>
+                        </div>
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(1)" value="1">
+                                1
+                            </button>
+                        </div>
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(2)" value="2">
+                                2
+                            </button>
+                        </div>
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(3)" value="3">
+                                3
+                            </button>
+                        </div>
+                        <div class="b-wrp" id="symbol">
+                            <button type="button" onclick="myfunction('*')" value="x">
+                                x
+                            </button>
+                        </div>
+                        <div class="b-wrp" id="cancel">
+                            <button type="button" onclick="resultclear()" value="">
+                                C
+                            </button>
+                        </div>
+                        <div class="b-wrp">
+                            <button type="button" onclick="myfunction(0)" value="0">
+                                0
+                            </button>
+                        </div>
+                        <div class="b-wrp" id="symbol">
+                            <button type="button" onclick="myfunctioneq()" value="">
+                                =
+                            </button>
+                        </div>
+                        <div class="b-wrp" id="symbol">
+                            <button type="button" onclick="myfunction('/')" value="/">
+                                /
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</body>
+<script src="index.js"></script>
+
+</html>

@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 100px auto;
+  padding: 20px;
+  width: 50%;
+  height: 250px;
+  border: 2px solid black;
+  display: flex;
+  overflow-x: scroll;
+}
+.container {
+  -webkit-overflow-scrolling: touch;
+}
+.item {
+  width: 295px;
+  height: 150px;
+  line-height: 150px;
+  margin: 10px 20px;
+  text-align: center;
+  background-color: red;
+  margin-right: 2px;
+  flex-shrink: 0;
+}

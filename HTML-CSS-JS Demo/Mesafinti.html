@@ -1,0 +1,131 @@
+<html>
+    <head>
+            <title>Calculator</title>
+  <script language="javascript">
+	function Calc(Val)
+                      {
+		if(Val != "=")
+			document.form.txtVal.value = document.form.txtVal.value + Val;
+		else
+			document.form.txtVal.value = eval(document.form.txtVal.value);
+	                   }
+</script>
+<style type="text/css">
+    .back{
+    background-color: #fff;
+}
+
+input[type=button]
+    {
+        padding: 0px;
+        border-bottom:4px solid saddlebrown;
+        height: 50px;
+        width: 80px;
+
+    }
+input[type=reset]
+{
+    padding: 0px;
+        border-bottom:4px solid saddlebrown;
+        height: 50px;
+        width: 80px;
+}
+input[type=text]
+    {
+
+        text-align: right;
+        height: 50px;
+        width: 240px;
+    }
+.control
+    {
+
+        margin:0px auto;
+        height: 350px;
+        width: 367px;
+        background-color:#251b0e;
+        border-radius:12px;
+        border-bottom:4px solid saddlebrown;
+   }
+#xoxo{
+    float: left;
+    margin-top:20px;
+    margin-left:20px;
+    
+}
+
+</style>
+<style type="text/css">
+    .btn-warning{color:#fff;
+        background-color:#f0ad4e;
+        border-color:#eea236}
+        .btn-warning:hover,.btn-warning:focus,
+        .btn-warning:active,.btn-warning.active,.open .dropdown-toggle.btn-warning{color:#fff;
+            background-color:#ed9c28;
+            border-color:#d58512}
+            .btn-warning:active,.btn-warning.active,.open .dropdown-toggle.btn-warning{background-image:none}
+            .btn-warning.disabled,.btn-warning[disabled],fieldset[disabled] .btn-warning,.btn-warning.disabled:hover,.btn-warning[disabled]:hover,fieldset[disabled] .btn-warning:hover,.btn-warning.disabled:focus,.btn-warning[disabled]:focus,fieldset[disabled] .btn-warning:focus,.btn-warning.disabled:active,.btn-warning[disabled]:active,fieldset[disabled] .btn-warning:active,.btn-warning.disabled.active,.btn-warning[disabled].active,fieldset[disabled] .btn-warning.active{background-color:#f0ad4e;border-color:#eea236}
+    .btn-primary{color:#fff;background-color:black;border-color:dark grey}
+    .btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary{color:#fff;background-color:#3276b1;
+border-color:#285e8e
+    }
+    .btn-primary:active,.btn-primary.active,.open .dropdown-toggle.btn-primary{background-image:none}.btn-primary.disabled,.btn-primary[disabled],fieldset[disabled] .btn-primary,.btn-primary.disabled:hover,.btn-primary[disabled]:hover,fieldset[disabled] .btn-primary:hover,.btn-primary.disabled:focus,.btn-primary[disabled]:focus,fieldset[disabled] .btn-primary:focus,.btn-primary.disabled:active,.btn-primary[disabled]:active,fieldset[disabled] .btn-primary:active,.btn-primary.disabled.active,.btn-primary[disabled].active,fieldset[disabled] .btn-primary.active{background-color:#428bca;border-color:#357ebd}
+    .btn-warning{color:#fff;}
+
+        .btn-danger{color:#fff;background-color:#d9534f;
+            border-color:#d43f3a}
+            .btn-danger:hover,.btn-danger:focus,.btn-danger:active,.btn-danger.active,.open .dropdown-toggle.btn-danger{color:#fff;background-color:#d2322d;border-color:#ac2925}.btn-danger:active,.btn-danger.active,.open .dropdown-toggle.btn-danger{background-image:none}.btn-danger.disabled,.btn-danger[disabled],fieldset[disabled] .btn-danger,.btn-danger.disabled:hover,.btn-danger[disabled]:hover,fieldset[disabled] .btn-danger:hover,.btn-danger.disabled:focus,.btn-danger[disabled]:focus,fieldset[disabled] .btn-danger:focus,.btn-danger.disabled:active,.btn-danger[disabled]:active,fieldset[disabled] .btn-danger:active,.btn-danger.disabled.active,.btn-danger[disabled].active,fieldset[disabled] .btn-danger.active{background-color:#d9534f;
+                border-color:#d43f3a
+            }
+
+
+        .btn-info{color:#fff;background-color:#003399;border-color:#46b8da}.btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active,.open .dropdown-toggle.btn-info{color:#fff;background-color:#003399;border-color:#003399}.btn-info:active,.btn-info.active,.open .dropdown-toggle.btn-info{background-image:none}.btn-info.disabled,.btn-info[disabled],fieldset[disabled] .btn-info,.btn-info.disabled:hover,.btn-info[disabled]:hover,fieldset[disabled] .btn-info:hover,.btn-info.disabled:focus,.btn-info[disabled]:focus,fieldset[disabled] .btn-info:focus,.btn-info.disabled:active,.btn-info[disabled]:active,fieldset[disabled] .btn-info:active,.btn-info.disabled.active,.btn-info[disabled].active,fieldset[disabled] .btn-info.active{background-color:#5bc0de;border-color:#46b8da}.btn-link{font-weight:normal;color:#428bca;cursor:pointer;border-radius:0}
+    
+</style>
+<script src="js/bootstrap.min.js"></script>
+         
+    </head>
+        <body class="back">
+            <form name="form">
+         <div class="control">
+    <table border="0" height="300px" width="300px" align="center" class="forming" id="xoxo" >
+        <tr>
+             <td><input type="reset" name="button" value="Clear" class="btn btn-danger"></td>
+            <td colspan="3"><input type="text" name="txtVal" class="form-control" placeholder="0"></td>
+
+        </tr>
+
+        <tr>
+            <td><input type="button" value="7" class="btn btn-primary" onclick="Calc(7);"></td>
+            <td><input type="button" value="8" class="btn btn-primary" onclick="Calc(8);"></td>
+            <td><input type="button" value="9" class="btn btn-primary" onclick="Calc(9);"></td>
+            <td><input type="button" value="+" class="btn btn-info" onclick="Calc('+');"></td>
+        </tr>
+
+<tr>
+            <td><input type="button" value="4" class="btn btn-primary" onclick="Calc(4);"></td>
+            <td><input type="button" value="5" class="btn btn-primary" onclick="Calc(5);"></td>
+            <td><input type="button" value="6" class="btn btn-primary" onclick="Calc(6);"></td>
+            <td><input type="button" value="-" class="btn btn-info" onclick="Calc('-');"></td>
+        </tr>
+        
+<tr>
+            <td><input type="button" value="1" class="btn btn-primary" onclick="Calc(1);"></td>
+            <td><input type="button" value="2" class="btn btn-primary" onclick="Calc(2);"></td>
+            <td><input type="button" value="3" class="btn btn-primary" onclick="Calc(3);"></td>
+            <td><input type="button" value="X" class="btn btn-info" onclick="Calc('*');"></td>
+        </tr>
+
+<tr>
+            <td><input type="button" value="0" class="btn btn-primary" onclick="Calc(0);"></td>
+            <td><input type="button" value="." class="btn btn-primary" onclick="Calc('.');"></td>
+            <td><input type="button" value="=" class="btn btn-warning" onclick="Calc('=');"></td>
+            <td><input type="button" value="/" class="btn btn-info" onclick="Calc('/');"></td>
+            </tr>
+
+    </table>
+                </div>
+                </form>
+                <h1 align="center">Calculator Developed By mesafint347@email.com</h1>
+    </body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Lights using JavaScript</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        min-height: 100vh;
+        background-color: #111111;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+color: #fff;
+    }
+    .container{
+        width: 70px;
+        height: 200px;
+        padding: 15px 0;
+        background: #fff;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .heading{
+        padding-bottom: 30px;
+        font-size: 3rem;
+    }
+  .container .traffic{
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: #000;
+  border-radius: 100%;
+  }
+  .traffic.red{
+    background-color: #c0392b;
+    box-shadow: 0 0 20px 5px #c0392b;
+  }
+  .traffic.red{
+    background-color: #c0392b;
+    box-shadow: 0 0 20px 5px #c0392b;
+  }
+  .traffic.yellow{
+    background-color: #cedd2a;
+    box-shadow: 0 0 20px 5px #cedd2a;
+  }
+  .traffic.green{
+    background-color: #207007;
+    box-shadow: 0 0 20px 5px #207007;
+  }
+</style>
+<body>
+    
+<h2 class="heading">Traffic Lights</h2>
+<div class="container">
+<div class="traffic" color="red"></div>
+<div class="traffic" color="yellow"></div>
+<div class="traffic" color="green"></div>
+</div>
+
+
+
+
+<script>
+
+const traffics = document.querySelectorAll('.traffic')
+
+let active = 0
+
+setInterval(changeLight,1000)
+function changeLight(){
+    traffics[active].classList = 'traffic'
+    active++
+
+    if(active > 2){
+        active = 0
+    }
+
+    const currentLight = traffics[active]
+    currentLight.classList.add(currentLight.getAttribute('color'))
+}
+
+
+</script>
+</body>
+</html>

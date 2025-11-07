@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic form using JavaScript</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #111111;
+    }
+    .section{
+        width: 400px;
+        margin: 40px auto;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+    .heading{
+padding-bottom:50px ;
+text-align: center;
+font-size: 3.4rem;
+color: #000;
+    }
+    input[type='text']{
+width: 278px;
+display: block;
+margin: 10px auto;
+padding: 10px;
+border: 1px solid #000;
+border-radius: 6px;
+background: none;
+color: #000;
+    }
+    input[type='text']::placeholder{
+color: #000;
+    }
+    input[type='text']:focus{
+        outline: none;
+    }
+    .controls{
+        width: 294px;
+margin: 15px auto;
+    }
+    #add_fields,#remove_fields{
+display: inline-block;
+padding: 15px 32px;
+text-decoration: none;
+background-color: #2626d1;
+color: #fff;
+border-radius: 5px;
+font-size: 16px;
+text-transform: uppercase;
+margin: 10px;
+    }
+    #remove_fields{
+        background-color: #d31d1d;
+    }
+</style>
+<body>
+    <div class="section">
+        <h2 class="heading">Dynamic Form Fields</h2>
+        <div id="survey_option">
+           <input type="text" name="survey_option[]" size="50" placeholder="Name" class="survey_options"> 
+           <input type="text" name="survey_option[]" size="50" placeholder="Email" class="survey_options"> 
+           <input type="text" name="survey_option[]" size="50" placeholder="Another Field" class="survey_options"> 
+        </div>
+        <div class="controls">
+<a href="#" id="add_fields">ADD</a>
+<a href="#" id="remove_fields">Remove</a>
+        </div>
+    </div>
+
+    <script>
+        const survey_options = document.getElementById('survey_option')
+       const add_fields = document.getElementById('add_fields')
+      const  remove_fields = document.getElementById('remove_fields')
+
+add_fields.onclick = function(){
+    let newFields = document.createElement('input')
+    newFields.setAttribute('type','text')
+    newFields.setAttribute('name','survey_option[]')
+    newFields.setAttribute('class','survey_options')
+    newFields.setAttribute('size','50')
+    newFields.setAttribute('placeholder','Another Fields')
+
+    survey_options.appendChild(newFields)
+}
+remove_fields.onclick = function(){
+    let tags = document.getElementsByTagName('input')
+    if(tags.length > 2){
+        survey_options.removeChild(tags[(tags.length) - 1])
+    }
+}
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript TodoList</title>
+</head>
+<style>
+.item-description{
+    padding: 5px;
+    width: 200px;
+    margin-bottom:10px ;
+}
+.item-input:checked ~ .item-description {
+    background: #dddddd;
+    text-decoration: line-through;
+}
+#add{
+    padding: 8px 14px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #009578;
+    cursor: pointer;
+
+}
+</style>
+<body>
+    
+<div id="items"></div>
+<template id="itemTemplate">
+    <div class="item">
+        <input type="checkbox" class="item-input">
+        <input type="text" class="item-description" placeholder="To-Do item...">
+    </div>
+</template>
+<button id="add">Add item</button>
+    <script>
+const itemsContainer = document.getElementById('items'),
+itemTemplate = document.getElementById('itemTemplate'),
+addButton = document.getElementById('add')
+
+let items = getItems()
+
+function getItems(){
+    const value = localStorage.getItem('todo') || "[]" 
+return JSON.parse(value)
+}
+
+function setItems(items){
+    const itemJson = JSON.stringify(items)
+    localStorage.setItem('todo',itemJson)
+}
+
+function addItem(){
+    items.unshift({
+        description:"",
+        completed:false
+    })
+    setItems(items)
+    refreshList()
+}
+
+function updateItem(item,key,value){
+    item[key] = value
+    setItems(items)
+    refreshList()}
+
+function refreshList(){
+items.sort((a,b)=>{
+    if(a.completed){
+        return 1 }
+    if(b.completed){
+        return -1  }
+    return a.description < b.description ? -1 : 1
+})
+    itemsContainer.innerHTML = ""
+for(const item of items){
+    const itemElement = itemTemplate.content.cloneNode(true)
+const description = itemElement.querySelector('.item-description')
+const itemInput = itemElement.querySelector('.item-input')
+description.value = item.description
+itemInput.checked = item.completed
+description.addEventListener('change',()=>{
+    updateItem(item,'description',description.value)
+})
+itemInput.addEventListener('change',()=>{
+    updateItem(item,'completed',itemInput.value)
+})
+itemsContainer.append(itemElement)}}
+addButton.addEventListener('click',()=>{
+    addItem()})
+    
+refreshList()
+
+
+
+    </script>
+</body>
+</html>

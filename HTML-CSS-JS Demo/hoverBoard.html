@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Board Using javaScript</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-color: #111111;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.heading
+{
+    font-size: 3rem;
+    padding-bottom: 50px;
+}
+#container{
+    max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.square{
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    background-color: #111111;
+    box-shadow: 0 0 2px #fff;
+    transition: 2s ease;
+}
+.square:hover{
+    transition-duration: 0s;
+}
+</style>
+<body>
+    
+<h2 class="heading">Levitate Board</h2>
+
+<div id="container">
+
+</div>
+
+    <script>
+const color = ['#f4fc03','#70c255','#55bdc2','#5b99cf','#2431a6','#33168a','#b01ec7',
+'#c71e56']
+
+
+
+const container = document.getElementById('container')
+
+const Square = 300;
+for(let i=0;i<Square;i++){
+    const square = document.createElement('div')
+    square.classList.add('square')
+
+square.addEventListener('mouseover',()=>{
+    setColor(square)
+})
+
+square.addEventListener('mouseout',()=>{
+    removeColor(square)
+})
+container.appendChild(square)
+}
+
+function setColor(el){
+const colorEl = randomGenerator()
+el.style.background = colorEl
+el.style.boxShadow = `0 0 4px ${colorEl}, 0 0 10px ${colorEl}`
+}
+function removeColor(el){
+el.style.background = '#111111';
+el.style.boxShadow = `0 0 2px #fff`;
+}
+
+function randomGenerator(){
+    return color[Math.floor(Math.random() * color.length)]
+}
+    </script>
+</body>
+</html>
